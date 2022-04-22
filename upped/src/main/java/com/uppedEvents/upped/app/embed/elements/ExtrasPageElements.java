@@ -55,6 +55,22 @@ public class ExtrasPageElements extends Base {
     @FindBy(className = "donations-button")
     public List<WebElement> donationButtons;
 
+    @FindBy(xpath = "//*[text()='Donate']")
+    public WebElement donateTab;
 
+    @FindBy(xpath = "//*[text()='Add Money to Wallet']")
+    public WebElement addMoneyTab;
+
+    @FindBy(xpath = "//*[text()='$20']")
+    public WebElement $20Button;
+
+    @FindBy(xpath = "//*[text()='$35']")
+    public WebElement $35Button;
+
+    @FindBy(xpath = "//*[text()='$50']")
+    public WebElement $50Button;
+
+    @FindBy(xpath = "//*[text()='$100']")
+    public WebElement $100Button;
 
 }

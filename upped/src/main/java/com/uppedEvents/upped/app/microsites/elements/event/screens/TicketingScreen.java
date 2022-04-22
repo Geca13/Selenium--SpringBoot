@@ -35,6 +35,8 @@ public class TicketingScreen extends Base {
     public Boolean discountInputIsDisplayed() { return this.ticketingElements.inputs.get(ticketingElements.inputs.size()-1).isDisplayed(); }
     public Boolean taxesTooltipIsDisplayed() { return this.ticketingElements.taxesTooltip.isDisplayed(); }
     public Boolean closeModalButtonIsDisplayed() { return this.ticketingElements.closeBtn.isDisplayed(); }
+    public Boolean closeTaxesContainerIsDisplayed() { return this.ticketingElements.taxesContainer.isDisplayed(); }
+
 
 
 

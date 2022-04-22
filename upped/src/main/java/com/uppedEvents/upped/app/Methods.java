@@ -14,8 +14,8 @@ public class Methods extends Base {
     public void clickElement(WebElement element){
         element.click();
     }
-    public void elementIsDisplayed(WebElement element){
-        element.isDisplayed();
+    public Boolean elementIsDisplayed(WebElement element){
+        return element.isDisplayed();
     }
 
     public void moveToElement(WebElement element){
@@ -61,5 +61,17 @@ public class Methods extends Base {
         return firstLevelChild.findElement(By.xpath("./child::*"));
     }
 
+    public Boolean forEachItemInListTheItemIsDisplayed(List<WebElement> elements) {
+        System.out.println(elements.size() + " listata");
+        for (WebElement element : elements) {
+           return element.isDisplayed();
+
+        }
+        return null;
+    }
+
+    public WebElement returnFirstLevelChildByIndex(WebElement parent, Integer index) {
+        return findChildrenElements(parent).get(index);
+    }
 
 }

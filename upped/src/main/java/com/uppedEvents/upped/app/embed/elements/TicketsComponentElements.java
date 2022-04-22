@@ -24,7 +24,7 @@ public class TicketsComponentElements extends Base {
     public List<WebElement> ticketInfoContainer;
 
     @FindBy(className = "name")
-    public List<WebElement> name;
+    public List<WebElement> ticketName;
 
     @FindBy(className = "ticket-price")
     public List<WebElement> ticketPrice;
@@ -33,7 +33,7 @@ public class TicketsComponentElements extends Base {
     public List<WebElement> infoIcon;
 
     @FindBy(className = "ticket-info")
-    public List<WebElement> ticketRulesTooltip;
+    public List<WebElement> infoIconContainer;
 
     @FindBy(className = "info")
     public List<WebElement> ticketDescription;

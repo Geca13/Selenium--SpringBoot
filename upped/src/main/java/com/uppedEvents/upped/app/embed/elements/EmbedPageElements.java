@@ -41,7 +41,7 @@ public class EmbedPageElements extends Base {
     public List<WebElement> mini;
 
     @FindBy(className = "grand-total")
-    public WebElement totalContainer;
+    public WebElement grandTotal;
 
     @FindBy(className = "terms-btn")
     public WebElement ticketTermsButton;
@@ -74,7 +74,7 @@ public class EmbedPageElements extends Base {
     public WebElement previousButton;
 
     @FindBy(className = "stepper-wrapper")
-    public List<WebElement> stepperWrapper;
+    public WebElement stepperWrapper;
 
     @FindBy(className = "stepper-item")
     public List<WebElement>  stepperItem;
@@ -87,4 +87,10 @@ public class EmbedPageElements extends Base {
 
     @FindBy(className = "step-name")
     public List<WebElement>  stepName;
+
+    @FindBy(css = "div[tooltipclass=maxWidthInitial]")
+    public List<WebElement> taxesAndFeesContainers;
+
+    @FindBy(className = "fa-trash")
+    public WebElement discountTrashIcon;
 }

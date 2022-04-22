@@ -6,6 +6,7 @@ import com.uppedEvents.upped.app.microsites.elements.account.elements.EditProfil
 import com.uppedEvents.upped.app.microsites.elements.account.screens.*;
 import com.uppedEvents.upped.app.microsites.elements.event.actions.*;
 import com.uppedEvents.upped.app.microsites.elements.event.elements.ExtrasTabElements;
+import com.uppedEvents.upped.app.microsites.elements.event.elements.TicketingScreenElements;
 import com.uppedEvents.upped.app.microsites.elements.event.screens.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class UppedApplicationTests {
+
+	@Autowired
+	TicketingScreenElements tic;
 
 	@Autowired
 	EventsScreen eventsScreen;
@@ -187,6 +191,9 @@ class UppedApplicationTests {
 		Assertions.assertTrue(this.ticketingScreen.nextButtonIsDisplayed());
 		Assertions.assertTrue(this.ticketingScreen.feesInfoIconIsDisplayed());
 		Assertions.assertTrue(this.ticketingScreen.taxesInfoIconIsDisplayed());
+		Assertions.assertTrue(this.ticketingScreen.taxesContainerIsDisplayed());
+		System.out.println(tic.taxesContainer.getText() + "aloooooo");
+
 		this.ticketingActions.moveToTaxesInfoIcon();
 
 		Assertions.assertTrue(this.ticketingScreen.taxesTooltipIsDisplayed());

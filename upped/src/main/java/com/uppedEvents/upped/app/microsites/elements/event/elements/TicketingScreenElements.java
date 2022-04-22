@@ -69,4 +69,7 @@ public class TicketingScreenElements extends Base {
 
     @FindBy(className = "fa-times")
     public WebElement closeBtn;
+
+    @FindBy(css = "div[tooltipclass=maxWidthInitial]")
+    public WebElement taxesContainer;
 }
