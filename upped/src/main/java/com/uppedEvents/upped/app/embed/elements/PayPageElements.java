@@ -26,7 +26,7 @@ public class PayPageElements extends Base {
     public List<WebElement> savedCards;
 
     @FindBy(className = "card-number")
-    public List<WebElement> cardsNames;
+    public List<WebElement> cardsNumbers;
 
     @FindBy(xpath = "//*[text()=' Pay with wallet ']")
     public WebElement payWithWalletButtonOption;
@@ -50,7 +50,7 @@ public class PayPageElements extends Base {
     public List<WebElement> requiredSymbol;
 
     @FindBy(name = "name")
-    public WebElement nameInput;
+    public WebElement cardHolderNameInput;
 
     @FindBy(xpath = "//input[@type='tel']")
     public WebElement cardNumberInput;

@@ -17,6 +17,7 @@ public class Methods extends Base {
     public Boolean elementIsDisplayed(WebElement element){
         return element.isDisplayed();
     }
+    public void sendKeysToElement(WebElement element, String keys) { element.sendKeys(keys);}
 
     public void moveToElement(WebElement element){
         Actions actions = new Actions(driver);

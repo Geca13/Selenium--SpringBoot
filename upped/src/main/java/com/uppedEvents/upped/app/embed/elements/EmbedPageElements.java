@@ -93,4 +93,13 @@ public class EmbedPageElements extends Base {
 
     @FindBy(className = "fa-trash")
     public WebElement discountTrashIcon;
+
+    @FindBy(xpath = "//*[text()='Apply']")
+    public WebElement applyDiscountButton;
+
+    @FindBy(className = "discount")
+    public WebElement discountInput;
+
+    @FindBy(xpath = "//*[text()='Discount Code ']")
+    public WebElement discountCodeLabel;
 }

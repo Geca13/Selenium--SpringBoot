@@ -66,4 +66,7 @@ public class EmbedPage extends Base {
     public Boolean extrasStepCompletedIconIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.stepCompletedIcon.get(2)); }
     public Boolean payStepCompletedIconIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.stepCompletedIcon.get(3)); }
     public Boolean confirmStepCompletedIconIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.stepCompletedIcon.get(4)); }
+    public Boolean applyDiscountButtonIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.applyDiscountButton); }
+    public Boolean discountInputIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.discountInput); }
+    public Boolean discountCodeLabelIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.discountCodeLabel); }
 }
