@@ -14,4 +14,15 @@ public class TicketComponentActions extends Base {
 
     @Autowired
     Methods methods;
+
+    public void clickFirstTicketsGroupTab() { this.methods.clickElement(this.elements.ticketGroupsTabs.get(0)); }
+    public void clickSecondTicketsGroupTab() { this.methods.clickElement(this.elements.ticketGroupsTabs.get(1)); }
+    public void clickThirdTicketsGroupTab() { this.methods.clickElement(this.elements.ticketGroupsTabs.get(2)); }
+    public void clickFourthTicketsGroupTab() { this.methods.clickElement(this.elements.ticketGroupsTabs.get(3)); }
+    public void selectQuantityForTheFirstTicket() { this.methods.sendKeysToElement(this.elements.ticketSelect.get(0),"2"); }
+    public void selectQuantityForTheSecondTicket() { this.methods.sendKeysToElement(this.elements.ticketSelect.get(1),"1"); }
+    public void selectQuantityForTheThirdTicket() { this.methods.sendKeysToElement(this.elements.ticketSelect.get(2),"2"); }
+    public void selectQuantityForTheFourthTicket() { this.methods.sendKeysToElement(this.elements.ticketSelect.get(3),"1"); }
+
+
 }

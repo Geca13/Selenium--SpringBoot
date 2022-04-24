@@ -1,5 +1,6 @@
 package com.uppedEvents.upped.app;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -73,6 +74,14 @@ public class Methods extends Base {
 
     public WebElement returnFirstLevelChildByIndex(WebElement parent, Integer index) {
         return findChildrenElements(parent).get(index);
+    }
+
+    public String generateRandom6LetterString(){
+        return RandomStringUtils.random(6,true,false);
+    }
+
+    public String generateRandom9LetterString(){
+        return RandomStringUtils.random(6,true,false);
     }
 
 }
