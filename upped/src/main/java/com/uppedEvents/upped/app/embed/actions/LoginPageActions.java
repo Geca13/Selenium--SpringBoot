@@ -14,4 +14,11 @@ public class LoginPageActions extends Base {
 
     @Autowired
     LoginPageElements elements;
+
+    public void login(){
+        this.methods.sendKeysToElement(this.elements.emailInput,"parma15@parma.it");
+        this.methods.sendKeysToElement(this.elements.passwordInput,"Pero1234");
+        this.methods.clickElement(this.elements.loginButton);
+    }
+    public void clickForgotPasswordLink() { this.methods.clickElement(this.elements.forgotPassword); }
 }

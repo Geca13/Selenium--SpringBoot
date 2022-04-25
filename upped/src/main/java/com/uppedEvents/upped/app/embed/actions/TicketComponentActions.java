@@ -15,6 +15,7 @@ public class TicketComponentActions extends Base {
     @Autowired
     Methods methods;
 
+    public Boolean isAtEmbedTicketing() {return this.wait.until((d) -> this.methods.elementIsDisplayed(this.elements.ticketGroupsTabs.get(0)));}
     public void clickFirstTicketsGroupTab() { this.methods.clickElement(this.elements.ticketGroupsTabs.get(0)); }
     public void clickSecondTicketsGroupTab() { this.methods.clickElement(this.elements.ticketGroupsTabs.get(1)); }
     public void clickThirdTicketsGroupTab() { this.methods.clickElement(this.elements.ticketGroupsTabs.get(2)); }

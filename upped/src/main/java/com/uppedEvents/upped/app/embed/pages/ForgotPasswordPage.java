@@ -20,4 +20,5 @@ public class ForgotPasswordPage extends Base {
     public Boolean loginLinkIsDisplayed() { return this.methods.elementIsDisplayed(this.elements.loginLink); }
     public Boolean emailInputIsDisplayed() { return this.methods.elementIsDisplayed(this.elements.emailInput); }
     public Boolean submitButtonIsDisplayed() { return this.methods.elementIsDisplayed(this.elements.submitButton); }
+
 }

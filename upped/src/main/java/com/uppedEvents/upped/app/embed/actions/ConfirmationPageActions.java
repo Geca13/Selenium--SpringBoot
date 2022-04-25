@@ -15,6 +15,8 @@ public class ConfirmationPageActions extends Base {
     @Autowired
     ConfirmationPageElements elements;
 
+    public Boolean isAtConfirmPage(){return this.methods.isAtPage(this.elements.shareButton);}
+
     public void clickShareButton() { this.methods.clickElement(this.elements.shareButton);}
     public void clickBackToStartButton() { this.methods.clickElement(this.elements.backToStartButton);}
 }

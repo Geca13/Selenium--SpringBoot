@@ -14,6 +14,8 @@ public class LoginPage extends Base {
     @Autowired
     Methods methods;
 
+    public Boolean isAtLoginPage() {return this.wait.until((d) -> this.methods.elementIsDisplayed(this.elements.loginButton));}
+
     public Boolean welcomeHeaderIsDisplayed() { return this.methods.elementIsDisplayed(this.elements.headerTitle);}
     public Boolean headerDescriptionIsDisplayed() { return this.methods.elementIsDisplayed(this.elements.headerDescription);}
     public Boolean loginContinueMessageIsDisplayed() { return this.methods.elementIsDisplayed(this.elements.loginContinueMessage);}

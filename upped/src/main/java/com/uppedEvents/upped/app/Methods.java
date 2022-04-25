@@ -83,5 +83,10 @@ public class Methods extends Base {
     public String generateRandom9LetterString(){
         return RandomStringUtils.random(6,true,false);
     }
+    public String generateRandom5NumbersString(){
+        return RandomStringUtils.random(6,false,true);
+    }
+
+    public Boolean isAtPage(WebElement element) { return this.wait.until((d) -> element.isDisplayed());}
 
 }

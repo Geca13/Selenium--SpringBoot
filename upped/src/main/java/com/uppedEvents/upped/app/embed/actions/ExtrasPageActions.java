@@ -15,6 +15,7 @@ public class ExtrasPageActions extends Base {
     @Autowired
     ExtrasPageElements elements;
 
+    public Boolean isAtExtrasPage(){return this.methods.isAtPage(this.elements.$20Button);}
     public void clickAddMoneyTab() { this.methods.clickElement(this.elements.addMoneyTab); }
     public void clickDonateTab() { this.methods.clickElement(this.elements.donateTab); }
     public void click$20Button() { this.methods.clickElement(this.elements.$20Button); }

@@ -65,7 +65,7 @@ public class EmbedPageElements extends Base {
     public WebElement termsCloseButton;
 
     @FindBy(className = "content")
-    public List<WebElement> terms;
+    public WebElement terms;
 
     @FindBy(xpath = "//*[text()='Next']")
     public WebElement nextButton;
@@ -79,7 +79,7 @@ public class EmbedPageElements extends Base {
     @FindBy(className = "stepper-item")
     public List<WebElement>  stepperItem;
 
-    @FindBy(className = "stepper-counter")
+    @FindBy(className = "step-counter")
     public List<WebElement>  stepperCounter;
 
     @FindBy(className = "step_completed")

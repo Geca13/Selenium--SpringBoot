@@ -48,9 +48,9 @@ public class EmbedPage extends Base {
     public Boolean termsPopupHeaderIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.termsPopupHeader); }
     public Boolean termsPopupIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.termsPopup); }
     public Boolean stepsContainerIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.stepperWrapper); }
-    public Boolean firstTermIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.terms.get(0)); }
-    public Boolean secondTermIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.terms.get(1)); }
-    public Boolean thirdTermIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.terms.get(2)); }
+    public Boolean firstTermIsDisplayed(){ return this.methods.elementIsDisplayed(this.methods.returnFirstLevelChildByIndex(this.elements.terms,0)); }
+    public Boolean secondTermIsDisplayed(){ return this.methods.elementIsDisplayed(this.methods.returnFirstLevelChildByIndex(this.elements.terms,1)); }
+    public Boolean thirdTermIsDisplayed(){ return this.methods.elementIsDisplayed(this.methods.returnFirstLevelChildByIndex(this.elements.terms,2)); }
     public Boolean ticketsStepNameIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.stepName.get(0)); }
     public Boolean loginStepNameIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.stepName.get(1)); }
     public Boolean extrasStepNameIsDisplayed(){ return this.methods.elementIsDisplayed(this.elements.stepName.get(2)); }
