@@ -3,6 +3,7 @@ package com.uppedEvents.upped;
 import com.uppedEvents.upped.app.Methods;
 import com.uppedEvents.upped.app.embed.actions.*;
 import com.uppedEvents.upped.app.embed.pages.*;
+import com.uppedEvents.upped.app.inbox.InboxActions;
 import com.uppedEvents.upped.app.microsites.elements.account.actions.*;
 import com.uppedEvents.upped.app.microsites.elements.account.elements.EditProfilePageElements;
 import com.uppedEvents.upped.app.microsites.elements.account.screens.*;
@@ -14,6 +15,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.awt.*;
 
 @SpringBootTest
 class UppedApplicationTests {
@@ -552,8 +555,12 @@ Thread.sleep(5000);
 	ForgotPasswordPage forgotPasswordPage;
 	@Autowired
 	ForgotPasswordActions forgotActions;
+	@Autowired
+	EmbedRegisterPage embedRegisterPage;
+	@Autowired
+	EmbedRegisterActions registerActions;
 	@Test
-	public void elementsOnEmbed(){
+	public void elementsOnEmbed() throws InterruptedException {
 
 		this.embedActions.openEmbedPage();
 		Assertions.assertTrue(this.embedPage.iFrameIsDisplayed());
@@ -648,6 +655,49 @@ Thread.sleep(5000);
 		Assertions.assertTrue(this.loginPage.googleSignInButtonIsDisplayed());
 		Assertions.assertTrue(this.loginPage.facebookSignInButtonIsDisplayed());
 		Assertions.assertTrue(this.loginPage.backToTicketsButtonIsDisplayed());
+		this.embedLoginActions.clickRegisterLink();
+		this.embedRegisterPage.isAtRegisterPage();
+		Assertions.assertTrue(this.embedRegisterPage.createPageTitleIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.createPageTitleSubtitleIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.signInLinkIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.firstNameLabelIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.lastNameLabelIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.dateOfBirthLabelIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.genderLabelIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.emailLabelIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.passwordLabelIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.verifyPassLabelIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.createAccountButtonIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.backToLoginButtonIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.firstNameInputIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.lastNameInputIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.birthdayInputIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.genderSelectIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.passwordInputIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.emailInputIsDisplayed());
+		Assertions.assertTrue(this.embedRegisterPage.confirmPassInputIsDisplayed());
+		this.registerActions.enterFirstName();
+		this.registerActions.enterLastName();
+		this.registerActions.enterEmail();
+		this.registerActions.enterDateOfBirth();
+		this.registerActions.enterGender();
+		this.registerActions.enterMatchingPasswords();
+		Thread.sleep(1000);
+		this.registerActions.clearFirstNameInput();
+		this.registerActions.clearLastNameInput();
+		this.registerActions.clearBirthdayInput();
+		this.registerActions.clearEmailInput();
+		this.registerActions.clearPasswordInput();
+		this.registerActions.clearConfirmPassInput();
+
+		//Assertions.assertTrue(this.embedRegisterPage.firstNameValidationIsDisplayed());
+		//Assertions.assertTrue(this.embedRegisterPage.lastNameValidationIsDisplayed());
+		//Assertions.assertTrue(this.embedRegisterPage.birthdayValidationIsDisplayed());
+		//Assertions.assertTrue(this.embedRegisterPage.passwordValidationIsDisplayed());
+		//Assertions.assertTrue(this.embedRegisterPage.emailValidationIsDisplayed());
+		//Assertions.assertTrue(this.embedRegisterPage.confirmPassValidationIsDisplayed());
+		this.registerActions.clickBackToLoginButton();
+		this.loginPage.isAtLoginPage();
         this.embedLoginActions.clickForgotPasswordLink();
 		this.forgotActions.isAtForgotPasswordPage();
 		Assertions.assertTrue(this.forgotPasswordPage.forgotPasswordHeaderIsDisplayed());
@@ -756,5 +806,16 @@ Thread.sleep(5000);
 
 
     }
+	@Autowired
+	InboxActions inboxActions;
+
+	@Test
+	public void openInbox() throws InterruptedException {
+		inboxActions.openInbox();
+
+		Thread.sleep(5000);
+		inboxActions.loginToInbox();
+		Thread.sleep(5000);
+	}
 
 }

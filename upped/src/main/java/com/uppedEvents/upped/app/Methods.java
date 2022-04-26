@@ -2,6 +2,7 @@ package com.uppedEvents.upped.app;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,6 +20,7 @@ public class Methods extends Base {
         return element.isDisplayed();
     }
     public void sendKeysToElement(WebElement element, String keys) { element.sendKeys(keys);}
+    public void clearInputField(WebElement element){ element.clear();element.click();element.sendKeys(Keys.TAB); }
 
     public void moveToElement(WebElement element){
         Actions actions = new Actions(driver);
@@ -84,9 +86,22 @@ public class Methods extends Base {
         return RandomStringUtils.random(6,true,false);
     }
     public String generateRandom5NumbersString(){
-        return RandomStringUtils.random(6,false,true);
+        return RandomStringUtils.random(5,false,true);
     }
 
     public Boolean isAtPage(WebElement element) { return this.wait.until((d) -> element.isDisplayed());}
 
+    public String generateRandomEmail(){
+        String prefix = RandomStringUtils.random(9,true,true);
+        return prefix + "@random.us";
+    }
+    public String generatePassword(){
+        return generateRandom6LetterString() + "13@";
+    }
+
+    public void enterMatchingPasswords(WebElement password, WebElement verifyPassword) {
+        String createdPassword = generatePassword();
+        password.sendKeys(createdPassword);
+        verifyPassword.sendKeys(createdPassword);
+    }
 }

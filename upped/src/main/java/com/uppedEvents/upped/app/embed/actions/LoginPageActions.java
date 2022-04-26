@@ -21,4 +21,5 @@ public class LoginPageActions extends Base {
         this.methods.clickElement(this.elements.loginButton);
     }
     public void clickForgotPasswordLink() { this.methods.clickElement(this.elements.forgotPassword); }
+    public void clickRegisterLink() { this.methods.clickElement(this.elements.registerLink); }
 }
