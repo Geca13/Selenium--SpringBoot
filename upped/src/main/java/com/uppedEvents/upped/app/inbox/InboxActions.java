@@ -27,15 +27,5 @@ public class InboxActions extends Base {
     private String inboxUrl;
 
     public void openInbox(){ this.driver.get(inboxUrl);}
-    public void loginToInbox() throws InterruptedException {
-        Thread.sleep(5000);
 
-
-       //Alert alert = this.driver.switchTo().alert();
-        Thread.sleep(5000);
-        ( (JavascriptExecutor) driver ).executeScript("window.alert = function(){ let list = document.getElementsByTagName(\"input\"); list[0].value = \"mail\"; list[1].value = \"upped2021\"; let button = document.getElementByTagName(\"button\"); button.click();}");
-
-        Thread.sleep(5000);
-
-    }
 }

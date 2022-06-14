@@ -16,4 +16,9 @@ public class InboxElements extends Base {
     Methods methods;
 
 
+    @FindBy(tagName = "tr")
+    public List<WebElement> tableRows;
+
+    @FindBy(tagName = "td")
+    public List<WebElement> tableDatas;
 }

@@ -581,7 +581,7 @@ Thread.sleep(5000);
 		Assertions.assertTrue(this.embedPage.feesTextIsDisplayed());
 		Assertions.assertTrue(this.embedPage.feesIconIsDisplayed());
         Assertions.assertTrue(this.embedPage.feesAmountIsDisplayed());
-		Assertions.assertTrue(this.embedPage.discountTextIsDisplayed());
+		//Assertions.assertTrue(this.embedPage.discountTextIsDisplayed());
 		Assertions.assertTrue(this.embedPage.discountTrashIconIsDisplayed());
 		Assertions.assertTrue(this.embedPage.discountAmountIsDisplayed());
         Assertions.assertTrue(this.embedPage.totalDueTextIsDisplayed());
@@ -813,9 +813,7 @@ Thread.sleep(5000);
 	public void openInbox() throws InterruptedException {
 		inboxActions.openInbox();
 
-		Thread.sleep(5000);
-		inboxActions.loginToInbox();
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 	}
 
 }
