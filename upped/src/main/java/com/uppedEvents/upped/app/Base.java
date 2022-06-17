@@ -68,6 +68,8 @@ public abstract class Base {
         this.sendKeys(element,keys);
     }
 
+
+
     public Double convertStringPriceToDouble(String price){
         return Double.parseDouble(price);
     }
