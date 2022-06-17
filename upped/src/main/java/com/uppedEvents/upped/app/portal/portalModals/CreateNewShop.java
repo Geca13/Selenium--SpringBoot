@@ -3,12 +3,19 @@ package com.uppedEvents.upped.app.portal.portalModals;
 import com.uppedEvents.upped.app.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class CreateNewShop extends Base {
+
+    @Autowired
+    DateTimePicker picker;
+
+    @Autowired
+    SetNewImage newImage;
 
     @FindBy(xpath = "//input[@formcontrolname='shopName']")
     public WebElement shopNameInput;
@@ -58,5 +65,9 @@ public class CreateNewShop extends Base {
     @FindBy(tagName = "icon-event")
     public List<WebElement> calendarIcon; //index 4
 
+    @FindBy(xpath = "//span[text()='Add Shop']")
+    public WebElement addShop;
 
+    @FindBy(xpath = "//button[text()='Cancel']")
+    public WebElement cancelButton;
 }
