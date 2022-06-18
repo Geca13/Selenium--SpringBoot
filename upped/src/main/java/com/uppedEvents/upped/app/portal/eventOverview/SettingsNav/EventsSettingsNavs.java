@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SettingsNavs extends Base {
+public class EventsSettingsNavs extends Base {
 
     @FindBy(xpath = "//*[text()='Event Security']")
     public WebElement eventsSecuritySubNav;

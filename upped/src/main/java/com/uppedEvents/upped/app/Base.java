@@ -30,6 +30,7 @@ public abstract class Base {
     }
     public void locateElementByTextAndClick(String text){
        WebElement element = this.driver.findElement(By.xpath("//*[normalize-space(text())='"+text+"']"));
+       this.elementIsClickable(element);
        element.click();
     }
     public void sendKeysAllElementsReturnedFromArray(List<WebElement> elements,  String amount){

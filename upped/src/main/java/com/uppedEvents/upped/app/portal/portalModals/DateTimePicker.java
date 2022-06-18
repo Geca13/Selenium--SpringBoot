@@ -24,4 +24,19 @@ public class DateTimePicker extends Base {
 
     @FindBy(xpath = "owl-dt-timer-input")
     public List<WebElement> timeInputs;
+
+    public void setStartDateAndTimeForEvent() {
+        this.elementIsClickable(setButton);
+        this.clickElement(nextMonthSelect);
+        this.clickElement(day13);
+        this.elementIsClickable(setButton);
+        this.clickElement(setButton);
+    }
+
+    public void setEndDateAndTimeForEvent() {
+        this.elementIsClickable(day13);
+        this.clickElement(day13);
+        this.elementIsClickable(setButton);
+        this.clickElement(setButton);
+    }
 }

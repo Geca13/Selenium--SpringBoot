@@ -15,4 +15,13 @@ public class MyEventsTab extends Base {
 
     @FindBy(xpath = "//td/a/span")
     public List<WebElement> events;
+
+    @FindBy(xpath = "//a[text()=' Published ']")
+    public WebElement publishedTab;
+
+    public void isOnMyEventsPage(String eventName) throws InterruptedException {
+        this.elementIsClickable(publishedTab);
+        Thread.sleep(2000);
+        this.locateElementByTextAndClick(eventName);
+    }
 }

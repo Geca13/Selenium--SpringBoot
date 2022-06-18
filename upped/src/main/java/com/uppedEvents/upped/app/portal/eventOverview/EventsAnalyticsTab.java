@@ -4,5 +4,5 @@ import com.uppedEvents.upped.app.Base;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AnalyticsTab extends Base {
+public class EventsAnalyticsTab extends Base {
 }

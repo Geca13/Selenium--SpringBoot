@@ -1,4 +1,4 @@
-package com.uppedEvents.upped.app.portal.partnerManagement.portalPages;
+package com.uppedEvents.upped.app.portal.portalPages;
 
 import com.uppedEvents.upped.app.Base;
 import org.openqa.selenium.WebElement;
@@ -24,8 +24,15 @@ public class PortalLoginPage extends Base {
     @FindBy(css = "input[formControlName=email]")
     public WebElement emailInput;
 
-    @FindBy(xpath = "input[formControlName=password]")
+    @FindBy(css = "input[formControlName=password]")
     public WebElement passwordInput;
 
     public void openPortal(){ this.driver.get(portalUrl);}
+
+    public void loginToPortal(){
+        this.elementIsClickable(signInButton);
+        this.sendKeys(emailInput,portalEmail);
+        this.sendKeys(passwordInput,portalPassword);
+        this.clickElement(signInButton);
+    }
 }

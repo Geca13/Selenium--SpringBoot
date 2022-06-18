@@ -47,4 +47,22 @@ public class CreateNewEvent extends Base {
 
     @FindBy(className = "ar-btn")
     public WebElement createButton;
+
+
+    public void createEvent(String eventName) {
+        this.elementIsClickable(createButton);
+        this.sendKeys(eventNameInput,eventName);
+        this.clickElement(occurenceSelect);
+        this.elementIsClickable(onceOccurance);
+        this.clickElement(onceOccurance);
+        this.sendKeys(attendeesInput,"100");
+        this.sendKeys(descriptionTextarea, eventName+" description");
+        this.clickElement(startDate);
+        this.picker.setStartDateAndTimeForEvent();
+        this.elementIsClickable(endDate);
+        this.clickElement(endDate);
+        this.picker.setEndDateAndTimeForEvent();
+        this.elementIsClickable(createButton);
+        this.clickElement(createButton);
+    }
 }

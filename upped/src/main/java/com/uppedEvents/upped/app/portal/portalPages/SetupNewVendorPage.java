@@ -1,4 +1,4 @@
-package com.uppedEvents.upped.app.portal.partnerManagement.portalPages;
+package com.uppedEvents.upped.app.portal.portalPages;
 
 import com.uppedEvents.upped.app.Base;
 import org.openqa.selenium.WebElement;
