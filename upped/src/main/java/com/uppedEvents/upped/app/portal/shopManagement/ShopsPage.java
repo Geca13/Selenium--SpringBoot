@@ -19,6 +19,9 @@ public class ShopsPage extends Base {
     @Autowired
     MenuSchedulerPage scheduler;
 
+    @Autowired
+    ShopCategoriesPage categoriesPage;
+
 
     @FindBy(id = "dropdownBasic1")
     public WebElement addShopDropdown;

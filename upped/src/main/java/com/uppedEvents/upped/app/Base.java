@@ -57,6 +57,11 @@ public abstract class Base {
         WebElement element = this.driver.findElement(By.xpath("//*[normalize-space(text())='"+text+"']"));
         this.elementIsVisible(element);
     }
+    public void clickElementByText(String text){
+        WebElement element = this.driver.findElement(By.xpath("//*[text()='"+text+"']"));
+        this.elementIsClickable(element);
+        this.clickElement(element);
+    }
     public String getEnteredTextInTheInput(WebElement element){
         return element.getAttribute("value");
     }
@@ -122,6 +127,16 @@ public abstract class Base {
     public void clickAwayOfElementPosition(WebElement element, Integer horizontal, Integer vertical){
         Actions actions = new Actions(this.driver);
         actions.moveToElement(element, horizontal, vertical).doubleClick().perform();
+
+    }
+    public void clickAndHold(WebElement element){
+        Actions actions = new Actions(this.driver);
+
+        actions.moveToElement(element,3,3).clickAndHold().perform() ;
+
+       // actions.clickAndHold(element).perform();
+        //actions.moveToElement(element2).release().perform();
+
     }
 
 

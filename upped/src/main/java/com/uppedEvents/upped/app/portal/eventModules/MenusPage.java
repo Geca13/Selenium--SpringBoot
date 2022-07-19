@@ -13,6 +13,9 @@ public class MenusPage extends Base {
     @FindBy(xpath = "//*[text()=' Create New Menu']")
     public WebElement createNewMenu;
 
+    @FindBy(xpath = "//a[contains(@class, 'menuHref')]")
+    public List<WebElement> menuLinks;
+
     @FindBy(xpath = "//*[text()='My Menus ']")
     public WebElement myMenusNav;
 
@@ -25,10 +28,10 @@ public class MenusPage extends Base {
     @FindBy(xpath = "//*[text()='Add New Section ']")
     public WebElement addNewSectionButton;
 
-    @FindBy(className = "justify-content-center")
+    @FindBy(xpath = "//div[contains(@class, 'container')]//div[@cdkdroplistconnectedto='list-2']")
     public List<WebElement> menuSections;
 
-    @FindBy(className = "cdk-drag")
+    @FindBy(xpath = "//div[contains(@class, 'items-listing')]//div[contains(@class, 'cdk-drag')]")
     public List<WebElement> menuItemsFromList;
 
     @FindBy(xpath = "//input[@name='menuTitle']")
@@ -205,4 +208,14 @@ public class MenusPage extends Base {
 
     @FindBy(xpath = "/html/body/ngb-modal-window/div/div/app-select-ticket/div/div/div[2]/div/div/ul/li[1]/div/p")
     public WebElement rightIcon;
+
+    public void addItemToSection() throws InterruptedException {
+        this.clickElement(menuLinks.get(0));
+        Thread.sleep(2000);
+        this.clickAndHold(menuItemsFromList.get(0));
+        this.dragAndDrop(menuItemsFromList.get(0), menuSections.get(0));
+        Thread.sleep(5000);
+    }
 }
+
+

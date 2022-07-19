@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.TimeZone;
 
 @Component
 public class DateTimePicker extends Base {
@@ -22,8 +24,13 @@ public class DateTimePicker extends Base {
     @FindBy(xpath = "//*[normalize-space(text())='Cancel']")
     public WebElement cancelButton;
 
-    @FindBy(xpath = "owl-dt-timer-input")
+    @FindBy(className = "owl-dt-timer-input")
     public List<WebElement> timeInputs;
+
+    public void clickSetButton(){
+        this.elementIsClickable(setButton);
+        this.clickElement(setButton);
+    }
 
     public void setStartDateAndTimeForEvent() {
         this.elementIsClickable(setButton);
@@ -38,5 +45,20 @@ public class DateTimePicker extends Base {
         this.clickElement(day13);
         this.elementIsClickable(setButton);
         this.clickElement(setButton);
+    }
+    public void setStartTimeForTicket(){
+        this.elementIsClickable(setButton);
+        LocalDateTime time = LocalDateTime.now();
+        Integer hour = Integer.valueOf(time.getHour());
+        if(hour > 12){
+            this.timeInputs.get(0).clear();
+            this.timeInputs.get(0).sendKeys (String.valueOf(hour - 12));
+        }else{
+            this.elementIsClickable(timeInputs.get(0));
+            this.timeInputs.get(0).clear();
+            this.timeInputs.get(0).sendKeys(String.valueOf(hour));
+        }
+        this.clickSetButton();
+
     }
 }

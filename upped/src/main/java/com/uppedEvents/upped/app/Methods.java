@@ -104,4 +104,7 @@ public class Methods extends Base {
         password.sendKeys(createdPassword);
         verifyPassword.sendKeys(createdPassword);
     }
+    public String getElementText(WebElement element){
+        return element.getText();
+    }
 }

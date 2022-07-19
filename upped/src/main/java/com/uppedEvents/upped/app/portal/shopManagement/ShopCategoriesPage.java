@@ -58,4 +58,15 @@ public class ShopCategoriesPage extends Base {
 
     @FindBy(xpath = "//button[@class='primary-btn' and text()='Save ']")
     public WebElement saveCategorizationButton;
+
+    public void isOnShopCategoriesPage(){
+        this.elementIsClickable(saveCategorizationButton);
+    }
+    public void moveWinesCategory() throws InterruptedException {
+        this.isOnShopCategoriesPage();
+        this.elementIsClickable(wine);
+        this.clickAndHold(wine);
+        this.dragAndDrop(wine,orderedCategoriesBox);
+        Thread.sleep(5000);
+    }
 }

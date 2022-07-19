@@ -22,4 +22,14 @@ public class ShopsNavs extends Base {
 
     @FindBy(xpath = "//a[@class='nav-link' and text()='Shop Categories']")
     public WebElement shopCategoriesNav;
+
+    public void isOnShopsPage(){
+        this.elementIsClickable(shopCategoriesNav);
+    }
+
+    public void clickShopCategoriesNav(){
+        this.isOnShopsPage();
+        this.clickElement(shopCategoriesNav);
+
+    }
 }

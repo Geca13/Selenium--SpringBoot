@@ -17,9 +17,7 @@ public class WebDriverConfig {
     @Bean
     public WebDriver chromeDriver(){
         WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        return driver;
+        return new ChromeDriver();
     }
     @Bean
     public WebDriverWait webDriverWait(WebDriver driver){

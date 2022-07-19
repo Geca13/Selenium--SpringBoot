@@ -4,10 +4,14 @@ import com.uppedEvents.upped.app.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class GeneralDetailsTab extends Base {
+
+    @Autowired
+    EventOptionTabs optionTabs;
 
     @FindBy(xpath = "//a[text()='Publish']")
     public WebElement publishButton;
@@ -20,6 +24,13 @@ public class GeneralDetailsTab extends Base {
 
     public void isOnGeneralDetailsPage(){
         this.elementIsClickable(saveButton);;
+    }
+
+    public void clickTicketingTab(){
+        this.clickElement(optionTabs.ticketingTab);
+    }
+    public void clickShopsTab(){
+        this.clickElement(optionTabs.shopManagementTab);
     }
 
     public void publishEvent(){

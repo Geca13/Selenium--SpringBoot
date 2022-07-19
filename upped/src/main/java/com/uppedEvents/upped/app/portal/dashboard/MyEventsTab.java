@@ -1,6 +1,7 @@
 package com.uppedEvents.upped.app.portal.dashboard;
 
 import com.uppedEvents.upped.app.Base;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
@@ -19,9 +20,13 @@ public class MyEventsTab extends Base {
     @FindBy(xpath = "//a[text()=' Published ']")
     public WebElement publishedTab;
 
-    public void isOnMyEventsPage(String eventName) throws InterruptedException {
+    public void isOnMyEventsPage() throws InterruptedException {
         this.elementIsClickable(publishedTab);
-        Thread.sleep(2000);
-        this.locateElementByTextAndClick(eventName);
+    }
+    public void clickEventByName(String name) throws InterruptedException {
+        Thread.sleep(5000);
+        this.elementIsVisible(events.get(0));
+       WebElement element =  this.driver.findElement(By.xpath("//td[contains(@class, 'column-eventname')]//a[contains(@class, 'table-ticket-name')]//span[text()='"+name+"']"));
+        this.clickElement(element);
     }
 }

@@ -58,4 +58,21 @@ public class CreateNewTicket extends Base {
 
     @FindBy(xpath = "//button[@type='reset']")
     public WebElement cancelTicketButton;
+
+    public void modalIsOpened(){
+        this.elementIsClickable(saveTicketButton);
+    }
+    public void createRegularTicket(String ticketName, String price){
+        this.modalIsOpened();
+        this.ticketNameInput.sendKeys(ticketName);
+        this.descriptionInput.sendKeys( ticketName + " Description");
+        this.rulesInput.sendKeys(ticketName + " Rules");
+        this.priceInput.sendKeys(price);
+        this.quantityInput.clear();
+        this.quantityInput.sendKeys("100");
+        this.clickElement(startDateInput);
+        this.picker.setStartTimeForTicket();
+        this.modalIsOpened();
+        this.clickElement(saveTicketButton);
+    }
 }

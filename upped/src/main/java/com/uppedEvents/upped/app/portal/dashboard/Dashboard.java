@@ -43,21 +43,27 @@ public class Dashboard extends Base {
     @FindBy(className = "Dashboard")
     public WebElement dashboardHeader;
 
+    @FindBy(xpath = "//span[text()='Menus']")
+    public WebElement menus;
+
 
     public void isOnDashboardPage(){
         this.elementIsClickable(myEventsTab);
 
 
     }
-    public void goToMyEventsPage(String eventName) throws InterruptedException {
+    public void goToMyEventsPage() throws InterruptedException {
         this.isOnDashboardPage();
         this.clickElement(myEventsTab);
-        this.eventsTab.isOnMyEventsPage(eventName);
+        this.eventsTab.isOnMyEventsPage();
     }
     public void createNewEvent(String eventName){
         this.isOnDashboardPage();
         this.clickElement(createEventButton);
         this.newEvent.createEvent(eventName);
+    }
+    public void goToMenusPage() throws InterruptedException {
+        this.clickElement(menus);
     }
 
 
