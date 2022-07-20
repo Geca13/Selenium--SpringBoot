@@ -39,7 +39,7 @@ public class CreateNewTicket extends Base {
     public WebElement ticketTypeButton;
 
     @FindBy(className = "lc_off")
-    public WebElement staffSwitch;
+    public List<WebElement> staffSwitch;
 
     @FindBy(name = "staff_dp")
     public WebElement staffSelect;
@@ -50,14 +50,17 @@ public class CreateNewTicket extends Base {
     @FindBy(tagName = "select-picker")
     public List<WebElement> departmentSelect;
 
-    @FindBy(tagName = "//a[@role='option']")
-    public List<WebElement> departmentOptions;
+    @FindBy(xpath = "//*[text()='Staff Will Select Department']")
+    public WebElement staffWillSelectOption;
 
     @FindBy(xpath = "//*[text()=' Save ']")
     public WebElement saveTicketButton;
 
     @FindBy(xpath = "//button[@type='reset']")
     public WebElement cancelTicketButton;
+
+    @FindBy(xpath = "//*[text()='Ticket Price']")
+    public WebElement ticketPriceLabel;
 
     public void modalIsOpened(){
         this.elementIsClickable(saveTicketButton);
@@ -73,6 +76,33 @@ public class CreateNewTicket extends Base {
         this.clickElement(startDateInput);
         this.picker.setStartTimeForTicket();
         this.modalIsOpened();
+        this.clickElement(saveTicketButton);
+    }
+
+    public void createStaffTicket(String ticketName, String price) throws InterruptedException {
+        this.modalIsOpened();
+        this.ticketNameInput.sendKeys(ticketName);
+        this.descriptionInput.sendKeys( ticketName + " Description");
+        this.rulesInput.sendKeys(ticketName + " Rules");
+        this.priceInput.sendKeys(price);
+        this.quantityInput.clear();
+        this.quantityInput.sendKeys("100");
+        this.clickElement(startDateInput);
+        this.picker.setStartTimeForTicket();
+        this.modalIsOpened();
+        this.clickElement(ticketTypeButton);
+        this.moveToElement(ticketPriceLabel);
+        this.elementIsClickable(staffSwitch.get(staffSwitch.size()-1));
+        this.clickElement(staffSwitch.get(staffSwitch.size()-1));
+        Thread.sleep(2000);
+        this.elementIsClickable(staffSelect);
+        this.clickElement(staffSelect);
+        this.elementIsClickable(staffOption);
+        this.clickElement(staffOption);
+        Thread.sleep(1000);
+        this.clickElement(departmentSelect.get(1));
+        Thread.sleep(1000);
+        this.clickElement(staffWillSelectOption);
         this.clickElement(saveTicketButton);
     }
 }

@@ -76,4 +76,8 @@ public class EventOptionTabs extends Base {
 
     @FindBy(xpath = "//*[text()='Analytics']")
     public WebElement analyticsNav;
+
+    public void navigateToEventSettings() throws InterruptedException {
+
+    }
 }

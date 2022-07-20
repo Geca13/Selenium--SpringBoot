@@ -36,7 +36,7 @@ public class TicketsNav extends Methods {
     public WebElement inactiveTicketsTab;
 
     @FindBy(className = "lc_off")
-    public WebElement ticketToggle;
+    public List<WebElement> ticketToggle;
 
     @FindBy(xpath = "response-message-popup")
     public WebElement ticketActivationModal;
@@ -65,19 +65,19 @@ public class TicketsNav extends Methods {
     @FindBy(className = "column-name")
     public List<WebElement> ticketsNames;
 
-    @FindBy(xpath = "//td[@class='column-startdate']/span")
+    @FindBy(className = "column-startdate")
     public List<WebElement> ticketsStartDate;
 
-    @FindBy(xpath = "//td[@class='column-enddate']/span")
+    @FindBy(className = "column-enddate")
     public List<WebElement> ticketsEndDate;
 
-    @FindBy(xpath = "//td[@class='column-price']/span")
+    @FindBy(className = "column-price")
     public List<WebElement> ticketsPrices;
 
-    @FindBy(xpath = "//td[@class='column-quantity']/span")
+    @FindBy(className = "column-quantity")
     public List<WebElement> ticketsQuantity;
 
-    @FindBy(xpath = "//td[@class='column-sold']/span")
+    @FindBy(className = "column-sold")
     public List<WebElement> ticketsSold;
 
     public void clickAddColumnButton() throws InterruptedException {
@@ -91,22 +91,46 @@ public class TicketsNav extends Methods {
         this.elementIsClickable(addTicketButton);
         this.clickElement(addTicketButton);
         this.newTicket.createRegularTicket(ticketName,price);
-        this.activateTicket();
-        this.elementIsClickable(ticketToggle);
-        Thread.sleep(15000);
-        WebElement element = this.ticketsNames.get(0);
-        String name = element.getText();
-        System.out.println(ticketsNames.size() + " siz");
+        Thread.sleep(5000);
+        Integer ticketIndex = ticketsNames.size() - 1;
+        this.elementIsClickable(ticketToggle.get(ticketIndex));
+        this.activateTicket(ticketIndex);
+        Thread.sleep(5000);
+        String name = this.getElementText(ticketsNames.get(ticketIndex));
         assertEquals(name,ticketName);
-        assertEquals(this.getElementText(ticketsPrices.get(0)),"$" +price);
-        assertEquals(this.getElementText(ticketsQuantity.get(0)),"100");
-        assertEquals(this.getElementText(ticketsSold.get(0)),"0");
+        String savedPrice = this.getElementText(ticketsPrices.get(ticketIndex));
+        String qty = this.getElementText(ticketsQuantity.get(ticketIndex));
+        String sold = this.getElementText(ticketsSold.get(ticketIndex));
+        assertEquals(savedPrice,"$" + price);
+        assertEquals("100" , qty);
+        assertEquals("0" , sold);
     }
 
-    public void activateTicket(){
-        this.elementIsClickable(ticketToggle);
-        this.clickElement(ticketToggle);
+    public void activateTicket(Integer index) throws InterruptedException {
+        this.elementIsClickable(ticketToggle.get(index));
+        this.clickElement(ticketToggle.get(index));
         this.elementIsClickable(ticketActivationYesButton);
         this.clickElement(ticketActivationYesButton);
+        Thread.sleep(2000);
+    }
+
+    public void createTicketForStaff(String ticketName, String price) throws InterruptedException {
+        this.elementIsClickable(addTicketButton);
+        this.clickElement(addTicketButton);
+        this.newTicket.createStaffTicket(ticketName,price);
+        Thread.sleep(5000);
+        Integer ticketIndex = ticketsNames.size() - 1;
+        this.elementIsClickable(ticketToggle.get(ticketIndex));
+        this.activateTicket(ticketIndex);
+        Thread.sleep(5000);
+        String name = this.getElementText(ticketsNames.get(ticketIndex));
+        assertEquals(name,ticketName);
+        String savedPrice = this.getElementText(ticketsPrices.get(ticketIndex));
+        String qty = this.getElementText(ticketsQuantity.get(ticketIndex));
+        String sold = this.getElementText(ticketsSold.get(ticketIndex));
+        assertEquals(savedPrice,"$" + price);
+        assertEquals("100" , qty);
+        assertEquals("0" , sold);
+
     }
 }
