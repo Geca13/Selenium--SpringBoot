@@ -1,6 +1,5 @@
 package com.uppedEvents.upped.app.portal.ticketing;
 
-import com.uppedEvents.upped.app.Base;
 import com.uppedEvents.upped.app.Methods;
 import com.uppedEvents.upped.app.portal.portalModals.ColumnOptions;
 import com.uppedEvents.upped.app.portal.portalModals.CreateNewTicket;
@@ -80,6 +79,9 @@ public class TicketsNav extends Methods {
     @FindBy(className = "column-sold")
     public List<WebElement> ticketsSold;
 
+    @FindBy(xpath = "//a[@class='text-second']")
+    public List<WebElement> updateTicketButtons;
+
     public void clickAddColumnButton() throws InterruptedException {
         this.elementIsClickable(addColumnButton);
         this.clickElement(addColumnButton);
@@ -132,5 +134,12 @@ public class TicketsNav extends Methods {
         assertEquals("100" , qty);
         assertEquals("0" , sold);
 
+    }
+
+    public void checkForNewTicketOnePrice(String tax1, String tax2, String fee1, String fee2) throws InterruptedException {
+        this.clickElement(updateTicketButtons.get(0));
+        this.newTicket.validateTicketPriceWithTaxesAndFees(tax1,tax2,fee1,fee2);
+        this.newTicket.validateTaxesAndFeesValues(tax1,tax2,fee1,fee2);
+        this.newTicket.validateTaxesAndFeesTotalsAndAssertTotal();
     }
 }

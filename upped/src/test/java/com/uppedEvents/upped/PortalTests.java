@@ -206,6 +206,26 @@ public class PortalTests extends Base {
         Thread.sleep(2000);
     }
 
+    @Test
+    @DirtiesContext
+    @Order(9)
+    public void assertTicketPriceWithTaxesAndFees() throws InterruptedException {
+        this.portalLoginPage.openPortal();
+        this.portalLoginPage.loginToPortal();
+        this.dashboard.isOnDashboardPage();
+        this.dashboard.goToMyEventsPage();
+        this.events.clickEventByName(eventName);
+        this.generalDetailsTab.isOnGeneralDetailsPage();
+        this.generalDetailsTab.clickTicketingTab();
+        this.ticketsNav.addColumnButton.isDisplayed();
+        Thread.sleep(5000);
+        this.ticketsNav.checkForNewTicketOnePrice(tax1,tax2,fee1,fee2);
+        Thread.sleep(2000);
+    }
+
+
+
+
 
     @Test
     @DirtiesContext

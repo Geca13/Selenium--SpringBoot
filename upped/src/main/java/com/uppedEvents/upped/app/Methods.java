@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 @Component
@@ -106,5 +108,12 @@ public class Methods extends Base {
     }
     public String getElementText(WebElement element){
         return element.getText();
+    }
+
+    public Double roundToTwoDecimals(Double decimal){
+        BigDecimal bigDecimal = new BigDecimal(decimal);
+        BigDecimal rounded = bigDecimal.setScale(2, RoundingMode.HALF_EVEN);
+        Double roundOff = Double.valueOf(String.valueOf(rounded));
+        return roundOff;
     }
 }
