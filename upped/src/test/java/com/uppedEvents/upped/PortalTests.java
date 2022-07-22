@@ -223,7 +223,12 @@ public class PortalTests extends Base {
         Thread.sleep(2000);
     }
 
+    @Test
+    @DirtiesContext
+    @Order(10)
+    public void shouldCreateNewAccount() throws InterruptedException {
 
+    }
 
 
 

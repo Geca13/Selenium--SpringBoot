@@ -4,25 +4,16 @@ import com.uppedEvents.upped.app.Methods;
 import com.uppedEvents.upped.app.embed.actions.*;
 import com.uppedEvents.upped.app.embed.pages.*;
 import com.uppedEvents.upped.app.inbox.InboxActions;
-import com.uppedEvents.upped.app.microsites.elements.account.actions.*;
-import com.uppedEvents.upped.app.microsites.elements.account.elements.EditProfilePageElements;
-import com.uppedEvents.upped.app.microsites.elements.account.screens.*;
-import com.uppedEvents.upped.app.microsites.elements.event.actions.*;
-import com.uppedEvents.upped.app.microsites.elements.event.elements.ExtrasTabElements;
-import com.uppedEvents.upped.app.microsites.elements.event.elements.TicketingScreenElements;
-import com.uppedEvents.upped.app.microsites.elements.event.screens.*;
+import com.uppedEvents.upped.app.micro.components.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-import java.awt.*;
-
 @SpringBootTest
 class UppedApplicationTests {
 
-	@Autowired
+	/*@Autowired
 	TicketingScreenElements tic;
 
 	@Autowired
@@ -815,6 +806,6 @@ Thread.sleep(5000);
 		inboxActions.openInbox();
 
 		Thread.sleep(1000);
-	}
+	}*/
 
 }
